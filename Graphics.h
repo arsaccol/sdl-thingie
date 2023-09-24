@@ -38,11 +38,14 @@ public:
 
         Uint32* pixels = static_cast<Uint32*>(renderSurface->pixels);
         Uint32 redColor = SDL_MapRGB(renderSurface->format, 255, 0, 0);
+        Uint32 blackColor = 0x000000;
 
         int pixelCount = renderWidth * renderHeight;
 
-        for(int i = 0; i < pixelCount; ++i) {
-            pixels[i] = redColor;
+        SDL_memset4(pixels, blackColor, pixelCount);
+
+        for(int i = 0; i < 300; ++i) {
+            pixels[renderWidth * i + (2 * i)] = redColor;
         }
 
         SDL_UnlockSurface(renderSurface);
