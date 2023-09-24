@@ -50,15 +50,17 @@ class App : public IApplication {
                 frameTime = endTime - startTime;
 
                 if(frameTime < targetFrameTime) {
-                    std::cout << "Waiting for: " << targetFrameTime - frameTime << std::endl;
                     SDL_Delay(targetFrameTime - frameTime);
                 }
 
 
-                std::string newTitle = windowTitle + std::to_string(frameTime) + " ms";
+
+
+
+                
+                Uint32 elapsedTime = SDL_GetTicks() - startTime;
+                std::string newTitle = windowTitle + " " + std::to_string(elapsedTime) + " ms";
                 SDL_SetWindowTitle(window, newTitle.c_str());
-
-
 
 
             }
