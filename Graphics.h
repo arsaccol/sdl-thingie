@@ -45,7 +45,7 @@ public:
         SDL_memset4(pixels, blackColor, pixelCount);
 
         for(int i = 0; i < 300; ++i) {
-            pixels[renderWidth * i + (2 * i)] = redColor;
+            pixels[renderWidth * i + (i)] = redColor;
         }
 
         SDL_UnlockSurface(renderSurface);
